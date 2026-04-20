@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <input type="text" id="input" />
+  <button onclick="setStorage()">set storage</button>
+  <button onclick="getStorage()">get storage</button>
+  <button onclick="removeStorage()">remove storage</button>
+
+  <body>
+    <script>
+        // Tenemos localstorage (los datos se persisten aunque se cierre el navegador), y sesionstorage
+        // (solo persisten mientras esté la ventana abierta)
+      let example = {
+        name: "chacho",
+        email: "chacho@email",
+      };
+      function setStorage() {
+        let user = document.getElementById("input").value;
+        localStorage.setItem("user", user);
+
+        localStorage.setItem("example", JSON.stringify(example));
+      }
+      function getStorage() {
+        console.log(localStorage.getItem("user"));
+
+        let data = JSON.parse(localStorage.getItem("example"));
+        console.log(data);
+      }
+
+      function removeStorage() {
+        localStorage.removeItem("user");
+      }
+
+      function setSession() {
+        sessionStorage.setItem("password", "sopa");
+      }
+
+      function getSession() {
+        sessionStorage.getItem("password");
+      }
+    </script>
+  </body>
+</html>

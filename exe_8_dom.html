@@ -1,0 +1,72 @@
+<html>
+  <head></head>
+  <body>
+    <main>
+      <h2>Alquiler de coches</h2>
+      <div id="step_1">
+        <input type="number" id="age" placeholder="age" />
+        <button onclick="checkAge()">Continuar</button>
+      </div>
+
+      <div id="step_2"></div>
+
+      <div id="step_3"></div>
+      <div id="result"></div>
+    </main>
+
+    <script>
+      function checkAge() {
+        let age = parseInt(document.getElementById("age").value);
+        if (age < 18) {
+          document.getElementById("result").innerHTML =
+            "<p>no puedes alquiler un coche, eres menor de edad</p>";
+          return;
+        }
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("step_2").innerHTML = `
+            <input id='carnet' placeholder='tienes carnet'>
+            <button onclick='checkCarnet()'>comprobar</button>
+            `;
+      }
+
+      function checkCarnet() {
+        let carnet = document.getElementById("carnet").value.toLowerCase();
+        if (carnet !== "si") {
+          document.getElementById("result").innerHTML =
+            "<p>No puedes alquilar un coche</p>";
+          return;
+        }
+        document.getElementById("step_3").innerHTML = `
+         <div>
+            <input type="text" id="name" placeholder="Nombre" />
+            <input type="text" id="surname" placeholder="Apellido" />
+            <input type="text" id="city" placeholder="Ciudad" />
+            <input type="text" id="days" placeholder="Días alquiler" />
+            <button onclick='calculate()'>calcular</button>
+        </div>
+        `;
+      }
+
+      function calculate() {
+        let name = document.getElementById("name").value;
+        let surname = document.getElementById("surname").value;
+        let city = document.getElementById("city").value;
+        let days = parseInt(document.getElementById("days").value);
+
+        let price;
+        price = 150 * parseInt(days / 7) + (days % 7) * 25;
+
+        document.getElementById("result").innerHTML = `
+         <div>
+        <h3>Datos</h3>
+        <p>Nombre:${name}</p>
+        <p>Apellido:${surname}</p>
+        <p>Ciudad:${city}</p>
+        <p>Dias:${days}</p>
+        <p>Precio:${price}</p>
+        </div>
+        `;
+      }
+    </script>
+  </body>
+</html>

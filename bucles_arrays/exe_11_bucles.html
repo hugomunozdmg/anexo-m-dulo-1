@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="esp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      let numUser;
+      do {
+        let reverseNum = "";
+        numUser = prompt("introduzca un numero:");
+
+        for (let i = numUser.length - 1; i >= 0; i--) {
+          reverseNum += numUser.substring(i, i + 1);
+        }
+        window.alert(reverseNum);
+      } while (numUser != 0);
+    </script>
+  </body>
+</html>

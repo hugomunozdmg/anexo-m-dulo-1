@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="esp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <style>
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .row div {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="list"></ul>
+    <script>
+      let num = 1;
+      let showNums = "";
+
+      while (num <= 12) {
+        if (num % 2 !== 0) {
+          showNums += `<li class="row"><div>${num}</div><div>${num * num}</div></li>`;
+        }
+
+        if (num % 2 === 0) {
+          showNums += `<li class="row"><div>${num}</div><div>${num * num * num}</div></li>`;
+        }
+
+        num++;
+      }
+
+      document.getElementById("list").innerHTML = showNums;
+    </script>
+  </body>
+</html>

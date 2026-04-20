@@ -1,0 +1,43 @@
+<html>
+  <head> </head>
+  <body>
+    <form onsubmit="getData(event)">
+      <label for="">Name:</label>
+      <input type="text" id="name" />
+      <button type="submit">click</button>
+    </form>
+
+    <button onclick="change()">change</button>
+    <button onclick="showTemplate()">show template</button>
+
+    <div id="container-1"></div>
+    <div id="container-2"></div>
+
+    <template id="my-template">
+      <p id="inner-template" style="border: 1px solid black">
+        Hello from template
+      </p>
+    </template>
+
+    <script>
+      let data = "";
+
+      function getData(event) {
+        event.preventDefault();
+        data = document.getElementById("name").value;
+        document.getElementById("container-1").innerHTML = `<p>${data}</p>`;
+      }
+
+      function change() {
+        document.getElementById("container-1").innerHTML = `<p>change</p>`;
+      }
+
+      function showTemplate() {
+        const template = document.getElementById("my-template");
+        const clon = template.content.cloneNode(true);
+        document.getElementById("container-2").appendChild(clon);
+        document.getElementById("inner-template").innerText = `Hello ${data}`;
+      }
+    </script>
+  </body>
+</html>

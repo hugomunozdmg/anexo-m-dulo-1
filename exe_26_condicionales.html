@@ -1,0 +1,45 @@
+<html>
+  <head> </head>
+  <body>
+    <script>
+      let usuario = parseInt(
+        prompt(`
+             Elija 1, 2 o 3:
+             1 - piedra
+             2 - papel
+             3 - tijera
+             `),
+      );
+
+      let maquina = parseInt(3 * Math.random() + 1);
+
+      let respuestaUsuario;
+      let respuestaMaquina;
+
+      if (usuario === 1) respuestaUsuario = "piedra";
+      if (usuario === 2) respuestaUsuario = "papel";
+      if (usuario === 3) respuestaUsuario = "tijera";
+
+      if (maquina === 1) respuestaMaquina = "piedra";
+      if (maquina === 2) respuestaMaquina = "papel";
+      if (maquina === 3) respuestaMaquina = "tijera";
+
+      alert(`
+           Tu eleccion:${respuestaUsuario}
+           Eleccion de la maquina:${respuestaMaquina}
+           `);
+
+      if (usuario === maquina) {
+        window.alert("empate");
+      } else if (
+        ((usuario === 1) && (maquina === 2)) ||
+        ((usuario === 2) && (maquina === 3)) ||
+        ((usuario === 3) && (maquina === 1))
+      ) {
+        window.alert("perdiste");
+      } else {
+        window.alert(`maquina, animal, bestia parda`);
+      }
+    </script>
+  </body>
+</html>

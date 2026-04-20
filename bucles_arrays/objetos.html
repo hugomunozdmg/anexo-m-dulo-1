@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="esp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <style>
+      li {
+        margin: 1rem;
+        border: 1px solid black;
+        background-color: aquamarine;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="users"></ul>
+
+    <script>
+      let user1 = {
+        name: "jose",
+        age: "22",
+        surname: "rodriguez",
+        email: "josemorenito19@gmail.com",
+        pets: []
+      };
+
+      let user2 = {
+        name: "Marian",
+        age: "23",
+        surname: "rodriguez",
+        email: "josemorenito19@gmail.com",
+        password: "",
+        pets: []
+      };
+
+      let user3 = {
+        name: "pepe",
+        age: 42,
+        surname: "rodriguez",
+        email: "josemorenito19@gmail.com", 
+        pets:[{name: "bart", race: "chucho"}, {},{}]
+      };
+
+
+      user2.email = "Marianperez@email";
+      user2.password = "1234556";
+
+      let petName = user3.pets[0].name
+
+      let ageUser2 = user2.age;
+      console.log(ageUser2);
+      if (ageUser2 < 18) {
+      }
+
+      let users = [user1, user2, user3];
+
+      for (let i = 0; i < users.length; i++) {
+        let pets = ""
+        for(let pet = 0; pet < users[i].pets.length; pet++){
+          pets += `${users[i].pets[pet].name}, `
+        }
+
+        document.getElementById("users").innerHTML += `<li>
+      Nombre: ${users[i].name}
+      Edad: ${users[i].age}
+      Apellido: ${users[i].surname}
+      Email: ${users[i].email}
+      Password: ${users[i].password}
+      Pets: ${pets}
+      
+       </li> `;
+      }
+    </script>
+  </body>
+</html>

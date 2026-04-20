@@ -1,0 +1,60 @@
+<!-- Barra de navegación básica, con botones que se quedan seleccionados al pulsar en la sección a la que llevan -->
+
+<html>
+  <head></head>
+  <body>
+    <header>
+      <nav>
+        <button id="new1" onclick="changeLink('1')">Noticia 1</button>
+        <button id="new2" onclick="changeLink('2')">Noticia 2</button>
+        <button id="new3" onclick="changeLink('3')">Noticia 3</button>
+      </nav>
+    </header>
+    <main>
+      <div id="main"></div>
+    </main>
+    <footer></footer>
+
+    <script>
+      const new_1 = `
+       <div>
+      <h1>Noticia 1: los perros han tomado la casa blanca</h1>
+      <p>aahhhhhhh nooooo noooooo</p>
+      </div>
+      `;
+      const new_2 = `
+          <div>
+          <h1>Noticia 2: los perros se han ido de la casa blanca</h1>
+          <p>aahhhhhhh siiiii siiiii</p>
+          </div>
+      `;
+      const new_3 = `
+          <div>
+          <h1>Noticia 3: los perros han vuelto a la casa blanca</h1>
+          <p>dios, otra vez no</p>
+          </div>
+      `;
+      function changeLink(selected) {
+        if (selected === "1") {
+          document.getElementById("main").innerHTML = new_1;
+
+          document.getElementById("new1").style.background = "red";
+          document.getElementById("new2").style.background = "grey";
+          document.getElementById("new3").style.background = "grey";
+        }
+        if (selected === "2") {
+          document.getElementById("main").innerHTML = new_2;
+          document.getElementById("new1").style.background = "grey";
+          document.getElementById("new2").style.background = "red";
+          document.getElementById("new3").style.background = "grey";
+        }
+        if (selected === "3") {
+          document.getElementById("main").innerHTML = new_3;
+          document.getElementById("new1").style.background = "grey";
+          document.getElementById("new2").style.background = "grey";
+          document.getElementById("new3").style.background = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

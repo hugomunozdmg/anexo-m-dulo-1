@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="bt-save">save</button>
+    
+
+    <script>
+
+        console.log("hola")
+
+        function hola(){
+            console.log("hello")
+        }
+
+        document.getElementById("bt-save").addEventListener("click", ()=>{
+            console.log("hello world")
+        })
+
+        document.addEventListener("keydown", (event)=>{
+            if(event.key == "h"){
+                hola()
+            }
+        })
+
+    </script>
+</body>
+</html>
